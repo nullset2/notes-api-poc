@@ -4,4 +4,5 @@ class Note < ApplicationRecord
   validates :content, presence: true
 
   belongs_to :user
+  has_many :file_attachments
 end
