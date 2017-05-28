@@ -47,6 +47,6 @@ class NotesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def note_params
-      params.require(:note).permit(:title, :content)
+      params.require(:note).permit(:title, :content, file_attachments_attributes: [:file, '_destroy'])
     end
 end

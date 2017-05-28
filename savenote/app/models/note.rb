@@ -4,5 +4,6 @@ class Note < ApplicationRecord
   validates :content, presence: true
 
   belongs_to :user
-  has_many :file_attachments
+  has_many :file_attachments, dependent: :destroy
+  accepts_nested_attributes_for :file_attachments
 end

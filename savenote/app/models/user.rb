@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :name, presence: true
 
-  has_many :notes
+  has_many :notes, dependent: :destroy
 end
