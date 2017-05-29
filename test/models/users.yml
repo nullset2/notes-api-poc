@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Alfredo
+  email: jalfredo.gallegos@gmail.com 
+  password: noh4cks
+  password_confirmation: noh4cks

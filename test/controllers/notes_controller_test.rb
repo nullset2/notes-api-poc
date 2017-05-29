@@ -5,9 +5,14 @@ class NotesControllerTest < ActionDispatch::IntegrationTest
     @note = notes(:one)
   end
 
-  test "should get index" do
+  test "should not get index if not yet authenticated" do
     get notes_url, as: :json
-    assert_response :success
+    assert_response :failure
+  end
+
+  test "should only get the notes index if authenticated" do
+    get notes_url, as: :json
+    assert_response :failure
   end
 
   test "should create note" do
