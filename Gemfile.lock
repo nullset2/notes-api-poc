@@ -56,6 +56,11 @@ GEM
       devise (> 3.5.2, <= 4.3)
       rails (< 6)
     erubis (2.7.0)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -151,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   devise_token_auth
+  factory_girl_rails
   listen (~> 3.0.5)
   omniauth
   paperclip
