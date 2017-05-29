@@ -4,9 +4,9 @@ class NotesController < ApplicationController
 
   # GET /notes
   def index
-    @notes = current_user.notes
+    @notes = current_user.notes.order(created_at: :desc) + Note.all.publicly_available.order(created_at: :desc)
 
-    render json: @notes
+    render json: @notes 
   end
 
   # GET /notes/1
@@ -19,6 +19,7 @@ class NotesController < ApplicationController
     @note = current_user.notes.new(note_params)
 
     if @note.save
+      @note.attachments.build
       render json: @note, status: :created, location: @note
     else
       render json: @note.errors, status: :unprocessable_entity
@@ -27,7 +28,15 @@ class NotesController < ApplicationController
 
   # PATCH/PUT /notes/1
   def update
+    byebug
     if @note.update(note_params)
+      #save the attachments
+      if params[:note][:attachments]
+        params[:note][:attachments].each { |key, file|
+          @note.attachments.create(file: file)
+        }
+      end
+
       render json: @note
     else
       render json: @note.errors, status: :unprocessable_entity
@@ -47,6 +56,6 @@ class NotesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def note_params
-      params.require(:note).permit(:title, :content, file_attachments_attributes: [:file, '_destroy'])
+      params.require(:note).permit(:id, :title, :content)
     end
 end

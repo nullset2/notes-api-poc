@@ -1,9 +1,8 @@
 class Note < ApplicationRecord
-  scope :available_publicly, -> { where(shared: true) }
+  scope :publicly_available, -> { where(shared: true) }
   validates :title, presence: true, length: { maximum: 140 }
   validates :content, presence: true
 
   belongs_to :user
-  has_many :file_attachments, dependent: :destroy
-  accepts_nested_attributes_for :file_attachments
+  has_many :attachments, dependent: :destroy
 end
