@@ -1,24 +1,9 @@
-# README
+# Note App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use the following postman collection to test: https://www.dropbox.com/s/h0nkh245o8pvscb/Savenote.postman_collection.json?dl=0 
+And this environment: https://www.dropbox.com/s/6xtylgfzofii4cu/prod.postman_environment.json?dl=0 
 
-Things you may want to cover:
+Live demo: https://stormy-sierra-85588.herokuapp.com/
 
-* Ruby version
+@nullset2
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
